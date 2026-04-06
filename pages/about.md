@@ -4,4 +4,4 @@ permalink: /
 layout: posts
 ---
 
-<p>This is the other beginning of my page</p>
+I am a high school student from Santa Fe, New Mexico, and this website is a partial catalog of the various projects and undertakings I've done over the course of high school and before. 
