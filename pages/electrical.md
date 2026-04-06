@@ -1,6 +1,5 @@
 ---
-title: "Posts by Year"
+title: ""
 permalink: /electrical/
 layout: posts
-author_profile: true
 ---
