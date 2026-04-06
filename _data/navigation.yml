@@ -8,6 +8,8 @@ main:
     url: /math/
   - title: "Electrical Projects"
     url: /electrical/
+  - title: "Example Page"
+    url: /post-archive-feature-rows/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
