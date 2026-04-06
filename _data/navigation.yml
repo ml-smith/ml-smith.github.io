@@ -5,7 +5,7 @@ main:
   - title: "About"
     url: /
   - title: "Math Projects"
-    url: /docs/_pages/math/
+    url: /math/
   - title: "Electrical Projects"
     url: /electrical/
   - title: "Example Page"
