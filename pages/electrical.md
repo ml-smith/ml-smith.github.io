@@ -1,5 +1,6 @@
 ---
 title: ""
-permalink: /electrical/
-layout: posts
+permalink: /tags/electrical/
+layout: tag
+taxonomy: electrical    
 ---

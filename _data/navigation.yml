@@ -5,11 +5,9 @@ main:
   - title: "About"
     url: /
   - title: "Math Projects"
-    url: /math/
+    url: /tags/math/
   - title: "Electrical Projects"
-    url: /electrical/
-  - title: "Example Page"
-    url: /post-archive-feature-rows/
+    url: /tags/electrical/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
