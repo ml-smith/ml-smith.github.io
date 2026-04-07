@@ -22,8 +22,8 @@ The principle of operation is somewhat surprisingly mainly thermodynamic: as the
 This process is highly volatile, and even slight disturbances in electrode spacing and straightness have large impacts in performance. In effect, this meant trying many different angles and spacing to achieve best results, which got the arcs to around 2-2.5 inches before reseting.
 
 <b><u>The power supply</u>:</b>
-<br>
-<p>The power supply I built for this project was incredibly simple to assemble in practice, but has intriguing underlying theory. The components required were a car ignition coil, a 250v 20uF capacitor, and a TRIAC dimmer switch (which is the most common type of dimmer switch for lights and other appliances). As seen below, the circuit this represents looks quite complex; however, everything except the transformer (which is the ignition coil) and the 20 uF capacitor is part of the dimmer switch and comes prepackaged.
+
+The power supply I built for this project was incredibly simple to assemble in practice, but has intriguing underlying theory. The components required were a car ignition coil, a 250v 20uF capacitor, and a TRIAC dimmer switch (which is the most common type of dimmer switch for lights and other appliances). As seen below, the circuit this represents looks quite complex; however, everything except the transformer (which is the ignition coil) and the 20 uF capacitor is part of the dimmer switch and comes prepackaged.
 <html>
   <style>
     .image-single-row{
@@ -39,13 +39,12 @@ This process is highly volatile, and even slight disturbances in electrode spaci
 </html>
 
 A couple things to note in the image of the actual circuit: first, the TRIAC appears not to be in series with the rest of the circuit. However, because it's designed to dim lights, it plugs into the wall before the main plug and effectively inserts itself in the circuit on the hot wire in the plug. The second is the hot glue smothering the top of the ignition coil. I put that on as electrical insulation, as the voltages being produced are higher than what the ignition coil was intended for, so it was arcing between the contacts. Finally, there's a white wire connected to the capacitor that appears to go nowhere. This is what I used to discharge the capacitor when I touched the circuit, as it could have been charged to potentially dangerour voltages otherwise. Unfortunately, on one occasion the spark from discharging the capacitor was so intense it welded the wire to the other electrode of the capacitor, shorting it out. I didn't notice this, and when I turned the circuit on, the increased current ended up destroying my TRIAC switch.
-<br>
+
 In terms of *how* this power supply works, it's once again not the intuitive method. Those familiar with electric components will know that when a changing current (like the AC that's delivered from outlets) is passed through the primary coil transformer, a voltage is induced in the secondary coil proportional to the rate of change and number of windings in the secondary. However, just the AC waveform by itself along with the igntion coil could only produce around 230 volts - nowhere near the 25kV actually seen. The reason for this is the way the TRIAC works. The way it dims things is by abruptly turning on current once the voltage across it reaches a certain adjustable threshold (this waveform is shown below). This shutoff happens in the span of just a few microseconds, and that collapse creates a massive voltage spike in the secondary coil. When I crunched the numbers to determine how big that spike should be, I found that it was around 100kV, which is of course also not what I observed. I think this is because of both inefficiencies in the power transfer in the inductor, and also parasitic inductance in the high-voltage wiring which impeded the high-frequency spike. Regardless, it's still more than enough for a good-sized Jacob's ladder.
 
 <img src="{{site.url}}/assets/images/triac-waveform.jpg" style="width:90%" alt="triac waveform">
 
 <b><u>Safety</u>:</b>
-<br>
 
 This is, I think, the most dangerous project I have completed to date. There is exposed wall outlet power, which can be lethal, and touching the arc itself could also be lethal depending on where on your body it is. So, here are the steps I took to ensure my own safety:
 
