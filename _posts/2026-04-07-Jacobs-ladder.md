@@ -31,8 +31,8 @@ This process is highly volatile, and even slight disturbances in electrode spaci
     }
   </style>
   <div class="image-single-row">
-    <img src="{{site.url}}/assets/images/circuit-diagram.svg" style="height:50%; width:50%" alt="circuit diagram">
-    <img src="{{site.url}}/assets/images/circuit-structure.jpg" style="width:50%" alt="picture of physical circuit">
+    <img src="{{site.url}}/assets/images/circuit-diagram.svg" style="height:65%; width:65%" alt="circuit diagram">
+    <img src="{{site.url}}/assets/images/circuit-structure.jpg" style="height:65%; width:35%" alt="picture of physical circuit">
   </div>
   <br>
   <br>
