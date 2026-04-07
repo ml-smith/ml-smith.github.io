@@ -2,12 +2,14 @@
 main:
   # - title: "Quick-Start Guide"
   # url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "About"
+  - title: "Home"
     url: /
   - title: "Math Projects"
     url: /tags/math/
-  - title: "Electrical Projects"
-    url: /tags/electrical/
+  - title: "Maker Projects"
+    url: /tags/maker/
+  - title: "Programming Projects"
+    url: /tags/prog/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
