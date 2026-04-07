@@ -6,7 +6,7 @@ tags:
 
 <div style="width:75%; margin:auto">
 <center>
-<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; border-radius: 7px; width:340px float:right;" alt="image">
+<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; border-radius: 7px; width:340px float:right;" alt="arc at the top of jacob's ladder">
 </center>
 <br>
 </div>
@@ -24,12 +24,18 @@ This process is highly volatile, and even slight disturbances in electrode spaci
 <b><u>The power supply</u>:</b>
 <br>
 <p>The power supply I built for this project was incredibly simple to assemble in practice, but has intriguing underlying theory. The components required were a car ignition coil, a 250v 20uF capacitor, and a TRIAC dimmer switch (which is the most common type of dimmer switch for lights and other appliances). As seen below, the circuit this represents looks quite complex; however, everything except the transformer (which is the ignition coil) and the 20 uF capacitor is part of the dimmer switch and comes prepackaged.
-
-<div style="width:49%; margin:auto">
-<img src="{{site.url}}/assets/images/circuit-diagram.svg" align="left" style="width:100%" alt="image">
-<img src="{{site.url}}/assets/images/circuit-structure.jpg" align="left" style="width:100%" alt="image">
-<br>
-<br>
-</div>
+<html>
+  <style>
+    .image-single-row{
+      display:flex;
+    }
+  </style>
+  <div class="image-single-row">
+    <img src="{{site.url}}/assets/images/circuit-diagram.svg" style="width:50%" alt="circuit diagram">
+    <img src="{{site.url}}/assets/images/circuit-structure.jpg" style="width:50%" alt="picture of physical circuit">
+  </div>
+  <br>
+  <br>
+</html>
 
 
