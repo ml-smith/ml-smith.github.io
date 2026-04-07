@@ -25,9 +25,9 @@ This process is highly volatile, and even slight disturbances in electrode spaci
 <br>
 <p>The power supply I built for this project was incredibly simple to assemble in practice, but has intriguing underlying theory. The components required were a car ignition coil, a 250v 20uF capacitor, and a TRIAC dimmer switch (which is the most common type of dimmer switch for lights and other appliances). As seen below, the circuit this represents looks quite complex; however, everything except the transformer (which is the ignition coil) and the 20 uF capacitor is part of the dimmer switch and comes prepackaged.
 
-<div style="width:50%; margin:auto">
-<img src="{{site.url}}/assets/images/circuit-diagram.svg" align="left" style="border:none; border-radius: 7px;" alt="image">
-<img src="{{site.url}}/assets/images/circuit-structure.jpg" align="right" style="border:none; border-radius: 7px;" alt="image">
+<div style="width:49%; margin:auto">
+<img src="{{site.url}}/assets/images/circuit-diagram.svg" align="left" style="width:100%" alt="image">
+<img src="{{site.url}}/assets/images/circuit-structure.jpg" align="left" style="width:100%" alt="image">
 <br>
 <br>
 </div>
