@@ -1,6 +1,7 @@
 ---
 title: ""
 permalink: /
+author_profile: true
 layout: posts
 ---
 
