@@ -4,9 +4,9 @@ tags:
   - maker
 ---
 
-<div style="width:100%; margin:auto">
+<div style="width:75%; margin:auto">
 <center>
-<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; width:auto; max-width:80% border-radius: 7px; float:right;" alt="image">
+<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; border-radius: 7px; float:right;" alt="image">
 </center>
 <br>
 </div>
