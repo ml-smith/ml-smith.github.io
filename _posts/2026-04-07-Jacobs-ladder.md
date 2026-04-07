@@ -6,7 +6,7 @@ tags:
 
 <div style="width:75%; margin:auto">
 <center>
-<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; border-radius: 7px; float:right;" alt="image">
+<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; border-radius: 7px; width:340px float:right;" alt="image">
 </center>
 <br>
 </div>
