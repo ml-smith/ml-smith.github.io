@@ -5,9 +5,7 @@ tags:
 ---
 
 <div style="width:75%; margin:auto">
-<center>
-<img src="{{site.url}}/assets/images/jacobs-ladder.gif" align="center" width:340px float:right;" alt="arc at the top of jacob's ladder">
-</center>
+<img src="{{site.url}}/assets/images/jacobs-ladder.gif" alt="gif of jacob's ladder">
 <br>
 </div>
 
