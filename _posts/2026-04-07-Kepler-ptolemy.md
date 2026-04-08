@@ -37,4 +37,5 @@ $$
 \ell \text{is the distance between the foci}
 \omega \text{is the angular speed around the empty focus}
 J \text{is the angular momentum around the sun focus}
+\end{aligned}
 $$
