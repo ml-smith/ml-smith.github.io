@@ -41,7 +41,7 @@ Upon taking a still frame from the above GIF, an interesting effect becomes appa
 
 Zooming in on the first image:
 
-<img src="{/assets/images/zoomed-arcs.jpg" style="width:90%" alt="zoomed in photo showing 5 arcs per frame">
+<img src="/assets/images/zoomed-arcs.jpg" style="width:90%" alt="zoomed in photo showing 5 arcs per frame">
 
 there are clearly 5 arcs per frame.
 

@@ -28,7 +28,6 @@ The main problem we addressed, however, was finding a curve which *exactly* sati
 To address this problem, it needs to be rephrased. The terminology used will be as follows:
 
 $$
-\begin{aligned}
 \vec{r}_\odot \text{is the radius from the sun to the planet} \\
 \vec{r} \text{is the radius from the empty focus to the planet} \\
 \theta_\odot \text{is the angle of the planet from the sun} \\
@@ -37,5 +36,4 @@ $$
 \ell \text{is the distance between the foci} \\
 \omega \text{is the angular speed around the empty focus} \\
 J \text{is the angular momentum around the sun focus} \\
-\end{aligned}
 $$
