@@ -10,7 +10,7 @@ tags:
 
 <div style="width:75%; margin:auto">
 <img src="{{site.url}}/assets/images/jacobs-ladder.gif" alt="gif of jacob's ladder">
-<br>
+<br><br>
 </div>
 
 A Jacob's ladder is a high-voltage electrical device that produces a rising arc between a pair of straight, nearly-vertical electrodes. It's often used in science demos to explain arcing, or in movies when a generic background electrical device is needed. The conditions this device needs to operate are:
