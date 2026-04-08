@@ -6,7 +6,7 @@ tags:
 
 <div style="width:75%; margin:auto">
 <center>
-<img src="{{site.url}}/assets/images/top-arcs.jpg" align="center" style="border:none; border-radius: 7px; width:340px float:right;" alt="arc at the top of jacob's ladder">
+<img src="{{site.url}}/assets/images/jacobs-ladder.gif" align="center" width:340px float:right;" alt="arc at the top of jacob's ladder">
 </center>
 <br>
 </div>
