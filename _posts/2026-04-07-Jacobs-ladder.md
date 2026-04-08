@@ -1,5 +1,9 @@
 ---
 title: "Jacob's Ladder"
+author_profile: false
+classes: wide
+header:
+  teaser: /assets/images/top-arcs.jpg
 tags:
   - maker
 ---
