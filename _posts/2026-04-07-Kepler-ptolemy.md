@@ -29,13 +29,13 @@ To address this problem, it needs to be rephrased. The terminology used will be 
 
 $$
 \begin{aligned}
-\vec{r}_\odot \text{is the radius from the sun to the planet}
-\vec{r} \text{is the radius from the empty focus to the planet}
-\theta_\odot \text{is the angle of the planet from the sun}
-\theta \text{is the angle of the planet from the empty focus}
-(x, y) \text{are the cartesian coordinates of the planet, treating the empty focus as the origin}
-\ell \text{is the distance between the foci}
-\omega \text{is the angular speed around the empty focus}
-J \text{is the angular momentum around the sun focus}
+\vec{r}_\odot \text{is the radius from the sun to the planet} \\
+\vec{r} \text{is the radius from the empty focus to the planet} \\
+\theta_\odot \text{is the angle of the planet from the sun} \\
+\theta \text{is the angle of the planet from the empty focus} \\
+(x, y) \text{are the cartesian coordinates of the planet, treating the empty focus as the origin} \\
+\ell \text{is the distance between the foci} \\
+\omega \text{is the angular speed around the empty focus} \\
+J \text{is the angular momentum around the sun focus} \\
 \end{aligned}
 $$
