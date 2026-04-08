@@ -19,6 +19,23 @@ The principle of operation is somewhat surprisingly mainly thermodynamic: as the
 
 This process is highly volatile, and even slight disturbances in electrode spacing and straightness have large impacts in performance. In effect, this meant trying many different angles and spacing to achieve best results, which got the arcs to around 2-2.5 inches before reseting.
 
+Upon taking a still frame from the above GIF, an interesting effect becomes apparant: there are always 5 arcs in one frame. This is because a standard video camera shoots at 24 frames per second, and there are 120 arcs per second (2 per cycle at 60 Hz). This can be seen clearly in the following:
+
+<html>
+  <style>
+    .image-single-row{
+      display:flex;
+    }
+  </style>
+  <div class="image-single-row">
+    <img src="{{site.url}}/assets/images/straight-arcs.jpg" style="width:33%" alt="arcs in the middle of the jacob's ladder">
+    <img src="{{site.url}}/assets/images/top-arcs.jpg" style="width:33%" alt="arcs at the top of the jacob's ladder">
+    <img src="{{site.url}}/assets/images/reset-frame.jpg" style="width:33%" alt="arcs looping back from the top to the bottom of the jacob's ladder">
+  </div>
+  <br>
+  <br>
+</html>
+
 <b><u>The power supply</u>:</b>
 
 The power supply I built for this project was incredibly simple to assemble in practice, but has intriguing underlying theory. The components required were a car ignition coil, a 250v 20uF capacitor, and a TRIAC dimmer switch (which is the most common type of dimmer switch for lights and other appliances). As seen below, the circuit this represents looks quite complex; however, everything except the transformer (which is the ignition coil) and the 20 uF capacitor is part of the dimmer switch and comes prepackaged.
