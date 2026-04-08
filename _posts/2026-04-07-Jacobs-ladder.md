@@ -33,8 +33,12 @@ Upon taking a still frame from the above GIF, an interesting effect becomes appa
     <img src="{{site.url}}/assets/images/reset-frame.jpg" style="width:33%" alt="arcs looping back from the top to the bottom of the jacob's ladder">
   </div>
   <br>
-  <br>
 </html>
+
+Zooming in on the first image:
+
+<img src="{{site.url}}/assest/images/zoomed-arcs.jpg" style="width:90%" alt="zoomed in photo showing 5 arcs per frame">
+there are clearly 5 arcs per frame.
 
 <b><u>The power supply</u>:</b>
 
@@ -53,7 +57,7 @@ The power supply I built for this project was incredibly simple to assemble in p
   <br>
 </html>
 
-A couple things to note in the image of the actual circuit: first, the TRIAC appears not to be in series with the rest of the circuit. However, because it's designed to dim lights, it plugs into the wall before the main plug and effectively inserts itself in the circuit on the hot wire in the plug. The second is the hot glue smothering the top of the ignition coil. I put that on as electrical insulation, as the voltages being produced are higher than what the ignition coil was intended for, so it was arcing between the contacts. Finally, there's a white wire connected to the capacitor that appears to go nowhere. This is what I used to discharge the capacitor when I touched the circuit, as it could have been charged to potentially dangerour voltages otherwise. Unfortunately, on one occasion the spark from discharging the capacitor was so intense it welded the wire to the other electrode of the capacitor, shorting it out. I didn't notice this, and when I turned the circuit on, the increased current ended up destroying my TRIAC switch.
+A couple things to note in the image of the actual circuit: first, the TRIAC appears not to be in series with the rest of the circuit. However, because it's designed to dim lights, it plugs into the wall before the main plug and effectively inserts itself in the circuit on the hot wire in the plug. The second is the hot glue smothering the top of the ignition coil. I put that on as electrical insulation, as the voltages being produced are higher than what the ignition coil was intended for, so it was arcing between the contacts. Finally, there's a white wire connected to the capacitor that appears to go nowhere. This is what I used to discharge the capacitor when I touched the circuit, as it could have been charged to potentially dangerous voltages otherwise. Unfortunately, on one occasion the spark from discharging the capacitor was so intense it welded the wire to the other electrode of the capacitor, shorting it out. I didn't notice this, and when I turned the circuit on, the increased current ended up destroying my TRIAC switch.
 
 In terms of *how* this power supply works, it's once again not the intuitive method. Those familiar with electric components will know that when a changing current (like the AC that's delivered from outlets) is passed through the primary coil transformer, a voltage is induced in the secondary coil proportional to the rate of change and number of windings in the secondary. However, just the AC waveform by itself along with the igntion coil could only produce around 230 volts - nowhere near the 25kV actually seen. The reason for this is the way the TRIAC works. The way it dims things is by abruptly turning on current once the voltage across it reaches a certain adjustable threshold (this waveform is shown below). This shutoff happens in the span of just a few microseconds, and that collapse creates a massive voltage spike in the secondary coil. When I crunched the numbers to determine how big that spike should be, I found that it was around 100kV, which is of course also not what I observed. I think this is because of both inefficiencies in the power transfer in the inductor, and also parasitic inductance in the high-voltage wiring which impeded the high-frequency spike. Regardless, it's still more than enough for a good-sized Jacob's ladder.
 
