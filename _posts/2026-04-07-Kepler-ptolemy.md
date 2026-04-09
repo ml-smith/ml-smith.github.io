@@ -2,7 +2,7 @@
 title: "Kepler Ptolmey System"
 author_profile: false
 header:
-  teaser: /assets/images/avocado-curve.png # will be changed later
+  teaser: /assets/images/avocado-curve.png
 classes: wide
 use_math: true
 tags:
@@ -46,4 +46,11 @@ $$
 \text{Angular momentum: }J = \vec{r}_\odot \times \vec{v}
 $$
 
-From these, we learned several things. Most importantly, $y' = \frac{\omega r^2 - J}{\ell} $, which we used later as a basis for substitution and conversion to polar coordinates. I won't go into all the details (I'll attach a copy of the paper at the bottom which has everything laid out explicitly), but this system of differential equations turns out to be closely related to the <a href="https://en.wikipedia.org/wiki/Legendre_polynomials">Legendre polynomials</a>, which lead to various families of solutions in a process outlined below.
+From these, we learned several things. Most importantly, $y' = \frac{\omega r^2 - J}{\ell} $, which we used later as a basis for substitution and conversion to polar coordinates. I won't go into all the details (I'll attach a copy of the paper at the bottom which has everything laid out explicitly), but this system of differential equations turns out to be closely related to the <a href="https://en.wikipedia.org/wiki/Legendre_polynomials">Legendre polynomials</a>, which lead to various families of solutions in a process outlined in a later section.
+
+My main independant contributions to this project were in the form of small details that needed proving. For instance, we observed in simulations (which I've written about coding <a href={{site.url}}/Avocado-simulation>here</a>) that the acceleration of this family of curves was constant when crossing the line connecting the two foci. This turned out to be relatively simple to prove, and just required a bit of rearrangment and subsitution. I also refactored the section of the paper discussing ellipses, as it had originally put the sun at the origin and thus was inconsistent with the rest of the paper, so I did a shift by $\ell$ to make it consistent.
+
+The most interesting part of this that I did independantly, though, was proving that the coefficients of a polynomial element of a solution are positive. This required both more advanced manipulation of differential equations and coefficient comparison in differential equations, neither of which were things I had done before, and it ended proving to be a highly instructive exercise. I also feel I learned a lot in general from this project, and have a much better understanding of differential geometry, Legendre polynomials, and many other aspects of this project than I did at the start. 
+
+<b><u>Families of solutions</u>:</b>
+
