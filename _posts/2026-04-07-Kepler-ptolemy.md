@@ -28,12 +28,22 @@ The main problem we addressed, however, was finding a curve which *exactly* sati
 To address this problem, it needs to be rephrased. The terminology used will be as follows:
 
 $$
-\vec{r}_\odot \text{is the radius from the sun to the planet} \\
-\vec{r} \text{is the radius from the empty focus to the planet} \\
-\theta_\odot \text{is the angle of the planet from the sun} \\
-\theta \text{is the angle of the planet from the empty focus} \\
-(x, y) \text{are the cartesian coordinates of the planet, treating the empty focus as the origin} \\
-\ell \text{is the distance between the foci} \\
-\omega \text{is the angular speed around the empty focus} \\
-J \text{is the angular momentum around the sun focus} \\
+\vec{r} \text{ is the radius from the empty focus to the planet} \\
+\vec{v} \{ is the velocity of the planet}
+\theta \text{ is the angle of the planet from the empty focus} \\
+(x, y) \text{ are the cartesian coordinates of the planet, treating the empty focus as the origin} \\
+\ell \text{ is the distance between the foci} \\
+\vec{r}_\odot = \vec{r} - \vec{\ell} \text{ is the radius from the sun to the planet} \\
+\theta_\odot \text{ is the angle of the planet from the sun} \\
+\omega \text{ is the angular speed around the empty focus} \\
+J \text{ is the angular momentum around the sun focus} \\
 $$
+
+Now, the two conditions can be specified:
+
+$$
+\text{Angular speed: }\omega = \frac{\vec{r} \times \vec{v}}{r^2} \\
+\text{Angular momentum: }J = \vec{r}_\odot \times \vec{v}
+$$
+
+From these, we learned several things. Most importantly, $y' = \frac{\omega r^2 - J}{\ell} $, which we used later as a basis for substitution and conversion to polar coordinates. I won't go into all the details (I'll attach a copy of the paper at the bottom which has everything laid out explicitly), but this system of differential equations turns out to be closely related to the <a href="https://en.wikipedia.org/wiki/Legendre_polynomials">Legendre polynomials</a>, which lead to various families of solutions in a process outlined below.
