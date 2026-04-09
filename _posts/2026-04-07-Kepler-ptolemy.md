@@ -29,7 +29,7 @@ To address this problem, it needs to be rephrased. The terminology used will be 
 
 $$
 \vec{r} \text{ is the radius from the empty focus to the planet} \\
-\vec{v} \{ is the velocity of the planet}
+\vec{v} \text{ is the velocity of the planet}
 \theta \text{ is the angle of the planet from the empty focus} \\
 (x, y) \text{ are the cartesian coordinates of the planet, treating the empty focus as the origin} \\
 \ell \text{ is the distance between the foci} \\
