@@ -17,12 +17,7 @@ import numpy as np
 import math
 
 def main():
-...
-{% endhighlight %}
 </summary>
-
-{% highlight python linenos %}
-def main():
     final_angle = np.pi
     angle_step = 0.001 * np.pi
     distance_step = 0.0001
