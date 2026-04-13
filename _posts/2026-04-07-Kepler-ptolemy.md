@@ -29,7 +29,7 @@ To address this problem, it needs to be rephrased. The terminology used will be 
 
 $$
 \vec{r} \text{ is the radius from the empty focus to the planet} \\
-\vec{v} \text{ is the velocity of the planet}
+\vec{v} \text{ is the velocity of the planet} \\
 \theta \text{ is the angle of the planet from the empty focus} \\
 (x, y) \text{ are the cartesian coordinates of the planet, treating the empty focus as the origin} \\
 \ell \text{ is the distance between the foci} \\
@@ -64,7 +64,7 @@ There are, of course, infinitely many solutions to the system outlined above. Ho
   </style>
   <div class="image-single-row">
     <img src="/assets/images/even-n-orbits.png" style="width:50%" alt="curves going to infinitt vertically">
-    <img src="/assets/images/odd-n-orbit.png" style="width:50%" alt="closed curves passing through origin">
+    <img src="/assets/images/odd-n-orbits.png" style="width:50%" alt="closed curves passing through origin">
   </div>
   <br>
   <br>
@@ -80,9 +80,9 @@ In order to find the family of curve with the propeties we wanted, we defined an
   </style>
   <div class="image-single-row">
     <img src="/assets/images/v1-1.png" style="width:25%" alt="curves converging to periodic solution">
-    <img src="/assets/images/v2-2.png" style="width:25%" alt="curves converging to periodic solution">
-    <img src="/assets/images/v3-3.png" style="width:25%" alt="curves converging to periodic solution">
-    <img src="/assets/images/v4-4.png" style="width:25%" alt="curves converging to periodic solution">
+    <img src="/assets/images/v2-1.png" style="width:25%" alt="curves converging to periodic solution">
+    <img src="/assets/images/v3-1.png" style="width:25%" alt="curves converging to periodic solution">
+    <img src="/assets/images/v4-1.png" style="width:25%" alt="curves converging to periodic solution">
   </div>
   <br>
   <br>
@@ -91,4 +91,19 @@ We combined these two families linearly to form a general solution to the differ
 
 <img src="/assets/images/loops.png" alt="a discrete collection of solutions which neither diverge nor go throught the equant">
 
+The dashed lines in the above figure represent the ellipses with the same foci, perihelion, and aphelion as the Kepler-Ptolemy curve.
+
 This family has two, important limiting characteristics: firstly, it is discrete due to both the other families being discrete and the case which produces the loop family happens only once per polynomial of the form $w(z)$. Secondly, it is not periodic; if extended past $\theta=2\pi$ or before $\theta=0$, it will converge to a periodic solution.
+
+<b><u>Takeaways</u>:</b>
+
+This project was incredibly instructive, both in the specific subject matter and in general in paper writing and problem solving skills. I learned:
+
+ - New ways of thinking about differential equations
+ - New methods of substitution for differential equations
+ - How to use LaTeX (not mentioned previously, but used throughout the paper and this post)
+ - What Legendre polynomials are and how orthogonality is a useful property
+ - The general definition of an inner product
+ - Many other, smaller bits of useful math
+
+I'm very glad to have gotten to learn from Cris on this, and hope to include more projects with him in the future!
