@@ -9,7 +9,7 @@ tags:
   - math
 ---
 
-This project has spanned over a year and will culminate in the publication of a academic paper in a scientific journal. The subject matter is highly arcane and theoretical, but it has been highly instructive in a variety of areas of mathematics. I am working on this project under the mentorship of Proffessor Cristopher Moore, a researcher at the Santa Fe Institute.
+This project has spanned over a year and will culminate in the publication of a academic paper in a scientific journal. The subject matter is highly arcane and theoretical, but it has been highly instructive in a variety of areas of mathematics. I am working on this project under the mentorship of Professor Cristopher Moore, a researcher at the Santa Fe Institute.
 
 <b><u>Setup</u>:</b>
 
@@ -48,7 +48,7 @@ $$
 
 From these, we learned several things. Most importantly, $y' = \frac{\omega r^2 - J}{\ell} $, which we used later as a basis for substitution and conversion to polar coordinates. I won't go into all the details (I'll attach a copy of the paper at the bottom which has everything laid out explicitly), but this system of differential equations turns out to be closely related to the <a href="https://en.wikipedia.org/wiki/Legendre_polynomials">Legendre polynomials</a>, which lead to various families of solutions in a process outlined in a later section.
 
-My main independant contributions to this project were in the form of small details that needed proving. For instance, we observed in simulations (which I've written about coding <a href={{site.url}}/Avocado-simulation>here</a>) that the acceleration of this family of curves was constant when crossing the line connecting the two foci. This turned out to be relatively simple to prove, and just required a bit of rearrangment and subsitution. I also refactored the section of the paper discussing ellipses, as it had originally put the sun at the origin and thus was inconsistent with the rest of the paper, so I did a shift by $\ell$ to make it consistent.
+My main independant contributions to this project were in the form of small details that needed proving. For instance, we observed in simulations (which I've written about coding <a href="{{site.url}}/Avocado-simulation">here</a>) that the acceleration of this family of curves was constant when crossing the line connecting the two foci. This turned out to be relatively simple to prove, and just required a bit of rearrangment and subsitution. I also refactored the section of the paper discussing ellipses, as it had originally put the sun at the origin and thus was inconsistent with the rest of the paper, so I did a shift by $\ell$ to make it consistent.
 
 The most interesting part of this that I did independantly, though, was proving that the coefficients of a polynomial element of a solution are positive. This required both more advanced manipulation of differential equations and coefficient comparison in differential equations, neither of which were things I had done before, and it ended proving to be a highly instructive exercise. I also feel I learned a lot in general from this project, and have a much better understanding of differential geometry, Legendre polynomials, and many other aspects of this project than I did at the start. 
 
@@ -70,7 +70,7 @@ There are, of course, infinitely many solutions to the system outlined above. Ho
   <br>
 </html>
 
-In order to find the family of curve with the propeties we wanted, we defined another family of curves, this one with a non-polynomial component (due to substitutions made earlier, this is equivalent to a non-periodic solution). These solutions are of the form $v(z) = tan^-1(z)w(z) + g(z)$ where $w(z)$ is one of the previously found polynomials and $g(z)$ is also a polynomial. As a brief note, this is one of my independant contributions: I proved that all the coefficients of $g(z)$ are positive. Some $v(z)$ are displayed below: 
+In order to find the family of curve with the propeties we wanted, we defined another family of curves, this one with a non-polynomial component (due to substitutions made earlier, this is equivalent to a non-periodic solution). These solutions are of the form $v(z) = tan^{-1}(z)w(z) + g(z)$ where $w(z)$ is one of the previously found polynomials and $g(z)$ is also a polynomial. As a brief note, this is one of my independant contributions: I proved that all the coefficients of $g(z)$ are positive. Some $v(z)$ are displayed below: 
 
 <html>
   <style>
