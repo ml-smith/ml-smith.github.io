@@ -9,20 +9,19 @@ This is a subsection of my <a href="{{site.url}}/Kepler-ptolemy">Kepler Ptolemy 
 
 What inspired this project was simply a desire to see what the Kepler Ptolemy system could look like when we eventually solved the system of differential equations. Cris (Cristopher Moore, who was my mentor for the larger Kepler Ptolemy project) delegated it to me, as it's relatively simple and I'm familiar enough with python to do it easily (or so I thought). My initial approach was to choose some angle step from the equant, then step out along that line until the area swept out by the most recent step is equal to our initial area step (this ensures that angular momentum is conserved, as discussed in the main post):
 
+<details>
+<summary>
 {% highlight python linenos %}
 import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-<details>
-<summary>
 def main():
-    final_angle = np.pi
-    angle_step = 0.001 * np.pi
-    distance_step = 0.0001
 ...
+{% endhighlight %}
 </summary>
 
+{% highlight python linenos %}
 def main():
     final_angle = np.pi
     angle_step = 0.001 * np.pi
