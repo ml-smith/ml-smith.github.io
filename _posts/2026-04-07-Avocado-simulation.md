@@ -1,5 +1,6 @@
 ---
 title: "Kepler Ptolemy Simulation"
+classes: wide
 tags:
   - prog
 ---
@@ -12,6 +13,15 @@ What inspired this project was simply a desire to see what the Kepler Ptolemy sy
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+
+<details>
+<summary>
+def main():
+    final_angle = np.pi
+    angle_step = 0.001 * np.pi
+    distance_step = 0.0001
+...
+</summary>
 
 def main():
     final_angle = np.pi
@@ -86,6 +96,8 @@ def polar_to_cart(point):
 if __name__ == '__main__':
     main()
 {% endhighlight %}
+
+</details>
 
 I now believe this method does produce correct results, as the system sometimes does have a pole and diverge to infinity. However, when I was first programming it, I believed this was a bug and spent a lot of time attempting to tweak parameters to fix it. Eventually, I found starting conditions that allowed for a complete 180 degree arc before encountering issues. From there, I flipped it to the other side (which is allowable due to symmetry), and I had the first idea of what a solution to this system could look like. A reproduction of that initial code is pictured below:
 

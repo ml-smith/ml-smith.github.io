@@ -1,5 +1,7 @@
 ---
 title: "MNIST Neural Nets"
+classes: wide
+use_math: true
 tags:
   - prog
 ---
