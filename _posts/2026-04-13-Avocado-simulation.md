@@ -1,6 +1,7 @@
 ---
 title: "Kepler Ptolemy Simulation"
 classes: wide
+author_profile: false
 tags:
   - prog
 ---
@@ -117,7 +118,7 @@ def main():
 </summary>
 {% highlight python %}
 
-final_angle = 2 * np.pi 
+    final_angle = 2 * np.pi 
     angle_step = 0.001 * np.pi ## can be set to improve resolution; however, higher resolution causes EARLIER divergence
     num_derivs = 0 ## number of derivatives to take and graph. 0 for only avocado
     
@@ -224,3 +225,5 @@ if __name__ == '__main__':
 </details>
 
 This version has several additional bells and whistles when compared to the first program, but the underlying idea is the same. This also allows the user to input the desired shape of curve as an "eccentricty", much the same as an ellipses eccentricity. This also shows that the Kepler Ptolemy curves are indeed a one-parameter family, meaning every shape the closed form can take can be characterized by a single number.
+
+This project, although summarized quickly in this post, took a lot of effort and debugging on my part. I learned some overarching programming concepts, such as looking for a more efficient representation of the problem and new debugging techniques, as well as more specific elements relevant to this problem, such as the one-parameter nature of the Kepler Ptolemy curves.
