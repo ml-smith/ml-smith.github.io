@@ -6,7 +6,7 @@ tags:
   - prog
 ---
 
-This is a subsection of my <a href="{{site.url}}/Kepler-ptolemy">Kepler Ptolemy projecy</a>, in the math section. This is a big part of what I worked on in that project, but I felt it was more fitting in the programming section. This will be a shorter descritption, but it still taught me some valuable things.
+This is a subsection of my <a href="{{site.url}}/Kepler-ptolemy">Kepler Ptolemy project</a>, in the math section. This is a big part of what I worked on in that project, but I felt it was more fitting in the programming section. This will be a shorter descritption, but it still taught me some valuable things.
 
 What inspired this project was simply a desire to see what the Kepler Ptolemy system could look like when we eventually solved the system of differential equations. Cris (Cristopher Moore, who was my mentor for the larger Kepler Ptolemy project) delegated it to me, as it's relatively simple and I'm familiar enough with python to do it easily (or so I thought). My initial approach was to choose some angle step from the equant, then step out along that line until the area swept out by the most recent step is equal to our initial area step (this ensures that angular momentum is conserved, as discussed in the main post):
 
