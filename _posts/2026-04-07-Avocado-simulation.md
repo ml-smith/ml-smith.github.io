@@ -11,13 +11,15 @@ What inspired this project was simply a desire to see what the Kepler Ptolemy sy
 
 <details>
 <summary>
-{% highlight python linenos %}
+{% highlight python %}
 import matplotlib.pyplot as plt
 import numpy as np
 import math
 
 def main():
+{% endhighlight %}
 </summary>
+{% highlight python %}
     final_angle = np.pi
     angle_step = 0.001 * np.pi
     distance_step = 0.0001
