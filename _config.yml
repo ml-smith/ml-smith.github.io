@@ -104,7 +104,7 @@ social:
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
     - "https://www.github.com/ml-smith"
-    - "https://www.instagram.com/malacloml.smith/"
+    - "https://www.linkedin.com/in/malcolm-smith-50a895378/"
 
 # Analytics
 analytics:
@@ -126,18 +126,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ml-smith"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/malacloml.smith"
-
-# Site Footer
-#footer:
-#  links:
-#    - label: "Instagram"
-#      icon: "fab fa-fw fa-instagram"
-#      # url:
-#  since: "2013"
-
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/malcolm-smith-50a895378/"
 
 # Reading Files
 include:
