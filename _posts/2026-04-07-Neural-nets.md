@@ -200,10 +200,232 @@ def generate_polynomial_data(coefficients, domain, num_points, noise=0):
         ys.append([y]) # same as above but for outputs
     return xs_lists, ys
 
-if __name__ = '__main__':
+if __name__ == '__main__':
   main()
 
 {% endhighlight %}
 </details>
 
-<img src='/assets/images/fitted-curve.svg' style="width:150%">
+<img src='/assets/images/fitted-curve.png' alt='Noisy data being fit by a curve'>
+
+This method produces a very good fit of the data, especially considering how noisy it is. The next application of this was to use it on a real data set (which I chose to be used car data), which produced similar well-fitting results. However, my main goal in this project was not to have a roundabout way of fitting data. So, I wrote another section of the neural network chapter in the book, this time about backpropagation. I spent much more time on this section, both in the programming, and the writing itself. It is definitely one of the most complex programming tasks I have attempted, and was a rewarding and challenging experience.
+
+In this chapter, I introduce the idea of a python class. I use it heavily throughout the chapter, sometimes in places that it may not strictly be the best idea, but I felt it was a good way to show the various use cases it can have. The data that I fitted with my program is the Modified National Institute of Standards and Technology (MNIST) dataset. This data catalogs tens of thousands of handwritten digits in a 28x28 pixel format. This large amount of data combined with small computation power required for each individual image made it ideal for my purposes. 
+
+<details>
+<summary>
+This is the main body of the MNIST training program, which will be explained in more detail below.
+</summary>
+{% highlight python linenos %}
+
+import numpy as np
+import struct
+from array import array
+import random
+import matplotlib.pyplot as plt
+
+class MnistDataloader(object):
+    def __init__(self, training_images_filepath,training_labels_filepath, test_images_filepath, test_labels_filepath):
+        self.training_images_filepath = training_images_filepath
+        self.training_labels_filepath = training_labels_filepath
+        self.test_images_filepath = test_images_filepath
+        self.test_labels_filepath = test_labels_filepath
+    
+    def read_images_labels(self, images_filepath, labels_filepath):
+        """processes data and converts images and labels to arrays"""
+        with open(labels_filepath, 'rb') as file:
+            size = struct.unpack(">II", file.read(8))[1]
+            unformatted_labels = array("B", file.read())
+            labels = np.zeros((len(unformatted_labels), 10))
+            for i in range(len(labels)):
+                labels[i][unformatted_labels[i]] = 1.0
+        
+        with open(images_filepath, 'rb') as file:
+            size, rows, cols = struct.unpack(">IIII", file.read(16))[1:]
+            image_data = array("B", file.read())        
+        images = np.zeros((size, rows * cols))
+        for i in range(size):
+            images[i] = np.array(image_data[i * rows * cols:(i + 1) * rows * cols]) / 256            
+        
+        return images, labels
+            
+    def load_data(self):
+        """returns processed data for both training and testing"""
+        x_train, y_train = self.read_images_labels(self.training_images_filepath, self.training_labels_filepath)
+        x_test, y_test = self.read_images_labels(self.test_images_filepath, self.test_labels_filepath)
+        return x_train, y_train, x_test, y_test     
+
+class layer():
+    """A fully connected layer with forward and backward propagation"""
+    def __init__(self, input_size, output_size):
+        self.type = 'layer'
+        self.weights = np.random.randn(input_size, output_size)
+        self.biases = np.zeros((1, output_size))
+        self.params = [self.weights, self.biases]
+
+    def prop_forward(self, inputs):
+        self.inputs = np.array(inputs)
+        self.outputs = np.dot(self.inputs, self.weights) + self.biases
+        return self.outputs
+
+    def prop_backward(self, next_grad):
+        self.weight_grad = np.dot(self.inputs.T, next_grad)
+        self.bias_grad = np.sum(next_grad, axis=0)
+        self.next_grad = np.dot(next_grad, self.weights.T)
+        return self.next_grad        
+
+class sigmoid():
+    """the sigmoid activation function"""
+    def __init__(self):
+        self.type = 'func'
+        # for when we update weights
+        self.weights = None
+        self.biases = None
+        self.params = [None, None]
+    
+    def prop_forward(self, inputs):
+        self.inputs = inputs
+        self.outputs = 1/(1 + np.exp(-inputs))
+        return self.outputs
+
+    def prop_backward(self, next_grad):
+        self.weight_grad = [None]
+        self.bias_grad = [None]
+        self.next_grad = next_grad * (1 - next_grad)
+        return self.next_grad / len(next_grad)
+    
+class NN():
+    """A neural network class based on layer and activation function classes"""
+    ## all inputs in a batch are processed simultaneously in this model.
+    ## this means many arrays in this have batch size as the first entry
+    ## in their shape.
+    def __init__(self):
+        self.layers = []
+        self.params = []
+
+    def add_layer(self, layer):
+        """adds a layer to the net"""
+        self.layers.append(layer)
+        self.params.append(layer.params)
+
+    def remove_layer(self, index):
+        """removes a layer from the net"""
+        self.layers.pop(index)
+        self.params.pop(index)
+
+    def run_forward(self, inputs):
+        """runs inputs through the net and updates output values"""
+        self.activations = inputs.copy()
+        for layer in self.layers:
+            self.activations = layer.prop_forward(self.activations)
+        self.outputs = self.activations.copy()
+    
+    def run_backward(self, next_grad):
+        """runs errors through the net and update gradients"""
+        self.grads = []
+        for layer in reversed(self.layers):
+            next_grad = layer.prop_backward(next_grad)
+            self.grads.append([layer.weight_grad, layer.bias_grad])
+
+    def update_params(self, inputs, expected_outputs, l_rate, v_depreciate):
+        """updates weights and biases based on gradients"""
+        self.run_forward(inputs)
+        output_error = self.outputs - expected_outputs
+        self.run_backward(output_error)
+
+        layer = 0
+        for p, g, v in zip(self.params, reversed(self.grads), self.velocities):
+            # some of these will be filled with None due to ReLU layers
+            if self.layers[layer].type == 'layer':
+                for i in range(len(g)):
+                    g[i] = np.array(g[i], dtype=float)# g can be an array of integers, which is changed to floats
+                    v[i] = v_depreciate * v[i] + g[i]
+                    p[i] -= l_rate * v[i]
+                    if i == 0: # checks to see whether p is weights or biases
+                        self.layers[layer].weight = p[i]
+                    else:
+                        self.layers[layer].biases = p[i]
+                self.layers[layer].params = p
+
+            layer += 1
+
+    def generate_batch(self, xs, ys, batch_size):
+        """returns a random sample of the given data"""
+        batch_xs = []
+        batch_ys = []
+        shuffle = np.random.permutation(len(xs))
+        xs, ys = xs[shuffle], ys[shuffle]
+        for i in range(batch_size):
+            batch_xs.append(xs[i])
+            batch_ys.append(ys[i])
+        return batch_xs, batch_ys
+
+    def calc_accuracy(self, expected_outputs):
+        """returns the accuracy of the net after calculating the output"""
+        accuracy = 0
+        maxxes = np.amax(self.outputs, axis=1)
+        for i in range(len(expected_outputs)):
+            if np.where(self.outputs[i] == np.max(self.outputs[i]))[0] == np.where(expected_outputs[i] == 1.0)[0]:
+                accuracy += 100 / len(expected_outputs)
+        
+        return accuracy
+    
+    def train(self, epochs, inputs, expected_outputs, batch_size, learning_rate=0.1, velocity_depreciation=0.9, real_time=True):
+        """trains the net with the specified hyperparameters"""
+        self.velocities = []
+        for param_layer in self.params: 
+            self.velocities.append([np.zeros_like(param) for param in param_layer])
+
+        accuracies = []
+        for i in range(epochs):
+            batch_inputs, batch_expected_outputs = self.generate_batch(inputs, expected_outputs, batch_size)
+            self.update_params(batch_inputs, batch_expected_outputs, learning_rate, velocity_depreciation)
+            accuracy = self.calc_accuracy(batch_expected_outputs)
+            print(f'Epoch {i+1} ran succesfully. Accuracy: {round(accuracy, 6)}')
+            accuracies.append(accuracy)
+            if real_time:
+                plt.plot(range(len(accuracies)), accuracies)
+                plt.savefig('real_time_accuracy.png')
+                print('Accuracy graph saved to real_time_accuracy.png')
+                plt.clf()
+        
+        print(f'Training complete.')
+        return accuracies # for graphing accuracies over epochs
+
+    def test(self, test_inputs, test_expected_outputs):
+        """tests the net with the provided data"""
+        self.run_forward(test_inputs)
+        accuracy = self.calc_accuracy(test_expected_outputs)
+        print(f'Test complete. Accuracy: {round(accuracy, 6)}')
+        return accuracy
+
+def main():
+    shape = [784, 32, 10]
+    activation_func = sigmoid
+    learning_rate = 1
+    velocity_depreciation = 0.9
+    epochs = 150
+    batch_size = 250
+    
+    filepaths = ['train-images.idx3-ubyte','train-labels.idx1-ubyte','t10k-images.idx3-ubyte','t10k-labels.idx1-ubyte']
+    
+    inputs, expected_outputs, test_inputs, expected_test_outputs = MnistDataloader(filepaths[0], filepaths[1], filepaths[2], filepaths[3]).load_data()
+    
+    net = NN()
+    for i in range(len(shape) - 1):
+        net.add_layer(layer(shape[i], shape[i+1]))
+        net.add_layer(activation_func())
+        
+    accuracies = net.train(epochs, inputs, expected_outputs, batch_size, learning_rate, velocity_depreciation, real_time=False)
+    test_accuracy = net.test(test_inputs, expected_test_outputs)
+    
+    plt.plot(range(epochs), accuracies)
+    plt.show()
+    
+if __name__ == '__main__':
+  main()
+
+{% endhighlight %}
+</details>
+
+This is, obviously, a very lengthy program.
