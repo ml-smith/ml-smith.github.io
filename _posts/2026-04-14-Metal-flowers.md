@@ -28,7 +28,7 @@ There are only two materials in the flower sculpture: steel and brass. The steel
 
  <img src="/assets/images/brazing-rod.jpg">
 
- The fuel used was an oxygen and acetylene mixture, or oxyacetylene. This is an example of non-arc welding, and can be used for that just strictly welding, as will be seen below.
+ The fuel used was an oxygen and acetylene mixture, or oxyacetylene. This is an example of non-arc welding, and can be used for more than just strictly welding, as will be seen below.
 
  <b><u>Flower construction</u>:</b>
 
