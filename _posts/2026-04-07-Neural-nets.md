@@ -562,3 +562,13 @@ class DrawPad():
 
 {% endhighlight %}
 </details>
+
+This is a very bare-bones UI, though it easily could be expanded to include more features. An example digit drawn with it is pictured below:
+
+<img src="/assets/images/drawpad-digit.png" alt="A highly pixelated, monochrome image of a 3">
+
+When submit was clicked, the window closed and the net's output was printed to the console. It would also draw 10 (an arbitrarily chosen number) example digits before displaying the drawing pad to give the user examples of what digits should look like. If the style was wrong, the net would misidentify it as it had only been trained on the specific style found in the MNIST data.
+
+<b><u>Conclusion</u>:</b>
+
+This project was very far-reaching and pushed the boundaries of what I knew in many fields. It was incredibly frustrating at times, but ultimately I pushed through and now have a better and more intuitive understanding of neural networks, multivariable calculus, the TKInter, NetworkX and NumPy libraries, and python classes. This is one of the projects I'm most proud of, and I hope to find more like it in the future.
