@@ -447,3 +447,118 @@ $$
 If we set all other activation derivatives to zero, we can then solve for each individual derivative. These activation derivatives can be used to calculate the weight derivatives, and update the entire net. In practice, this can be done for many, many inputs at once in parallel, using matrix multiplication. This is how my implementation listed above runs, using the NumPy library. 
 
 None of this math ended up in the chapter I wrote because it was simply too advanced for the intended audience. However, to get the program to function, I did have to learn it all, so I felt it was fitting to include it here.
+
+<b><u>TKInter inputs</u>:</b>
+
+The next major step I took was to make the program interactive. After all, it's not an incredibly helpful educational tool if it just displays a message that says "test accuracy: 98.2%" or something like that. In order to make it interactive, though, I had to familiarize myself with yet another python library: TKInter. It's a GUI library, which has applications in any scenario where a display window is required. Unfortunately, unlike MatPlotLib (which I had previously been using to graph accuracy etc.), it doesn't have built-in compatibility with NetworkX. This meant I had to interface them manually, which took a lot of effort and consideration of exact pixel locations. The updated sections of the code are below:
+
+<details>
+<summary>
+The new code required for interactions.
+</summary>
+{% highlight python linenos %}
+
+""" add this line at the top: """
+import tkinter as tk
+
+""" replace the last two lines of main with: """
+    for _ in range(10):
+        i = random.randint(0, len(inputs) - 1)
+        image = inputs[i]
+        label = expected_outputs[i]
+        net.run_forward([image])
+        output = net.outputs[0]
+        show_example(image, list(output).index(np.max(output)), list(label).index(1))
+
+    pad = DrawPad(net.run_forward) ## creates a drawing pad that will run the output through the trained net
+    while pad.root.state() == 'normal': # checks if the window tkinter opened is still open 
+        pad.get_input() ## automatically runs output through net
+        print(f'Net output: {list(net.outputs[0]).index(np.max(net.outputs[0]))}')
+
+def show_example(image, net_output, expected_output):
+    """shows an image, the net output, and the image's label"""
+    root = tk.Tk()
+    root.title('Digit')
+    canvas = tk.Canvas(root, width=560, height=560, bg='black')
+    canvas.pack()
+    image = image.reshape(28, 28).T
+    for x in range(image.shape[0]):
+        for y in range(image.shape[1]):
+            pix_val = image[x][y] * 255
+            fill = rgb_hex((pix_val, pix_val, pix_val))
+            canvas.create_rectangle(x * 20 - 10, y * 20 - 10, x * 20 + 10, y * 20 + 10, fill=fill, width=0)
+    print(f'Net output: {net_output}')
+    print(f'Label: {expected_output}')
+    root.mainloop()
+
+def rgb_hex(rgb):
+    """turns an rgb color into a hexcode color"""
+    r, g, b = rgb
+    return f'#{int(r):02x}{int(g):02x}{int(b):02x}'
+
+""" add this class somewhere in the body: """
+class DrawPad():
+    def __init__(self, output_command):
+        """sets up various necessary variables"""
+        self.output_command = output_command
+        self.root = tk.Tk()
+        self.pixels = np.zeros((28, 28))
+        self.root.title('Input Digit:')
+        self.root.minsize(560, 600)
+        self.canvas = tk.Canvas(self.root, width=560, height=560, bg='black')
+        self.canvas.pack()
+        self.canvas.bind('<B1-Motion>', self.draw_pixels) # B1-Motion is when the left-click is held and dragged
+        self.frame = tk.Frame(self.root)
+        self.frame.pack(side=tk.BOTTOM)
+        tk.Button(self.frame, text='Submit', font='comicsans 12 bold', command=self.output).pack(side=tk.BOTTOM, padx=6, pady=6)
+        tk.Button(self.frame, text='Clear', font='comicsans 12 bold', command=self.clear).pack(side=tk.BOTTOM, padx=6)
+
+    def draw_pixels(self, mouse):
+        """draws a 3x3 diamond of pixels around the cursor"""
+        # snaps xs and ys to a 28x28 grid
+        x = np.floor(mouse.x / 20) * 20 + 10
+        y = np.floor(mouse.y / 20) * 20 + 10
+        for dx in range(-40, 60, 20):
+            for dy in range(-40, 60, 20):
+                if not ((abs(dx) == 40 and abs(dy) == 40) or (abs(dx) == 20 and abs(dy) == 40) or (abs(dx) == 40 and abs(dy) == 20)):
+                    # selects a diamond-shaped region around the mouse
+                    if abs(dx) == 20 or abs(dy) == 20:
+                        # selects four pixels adjacent to center
+                        dalpha = 10 / 255
+                    elif abs(dx) == 40 or abs(dy) == 40 or (abs(dx) == 20 and abs(dy) == 20):
+                        # selects 8 pixels not adjacent to center
+                        dalpha = 3 / 255
+                    else:
+                        # selects center pixel
+                        dalpha = 80 / 255
+                    self.pixels[int((x + dx - 10) / 20)][int((y + dy - 10) / 20)] += dalpha # increases the value of a pixel
+                    if self.pixels[int((x + dx - 10) / 20)][int((y + dy - 10) / 20)] > 1:
+                        self.pixels[int((x + dx - 10) / 20)][int((y + dy - 10) / 20)] = 1
+                    self.draw_rec((x - 10 + dx, y - 10 + dy), (x + 10 + dx, y + 10 + dy), alpha=self.pixels[int((x + dx - 10) / 20)][int((y + dy - 10) / 20)] * 255)
+
+    def rgb_hex(self, rgb):
+        """turns an rgb color into a hexcode color"""
+        r, g, b = rgb
+        return f'#{int(r):02x}{int(g):02x}{int(b):02x}'
+                    
+    def draw_rec(self, pt_1, pt_2, alpha=255):
+        """draws a given pixel at a given alpha"""
+        fill = self.rgb_hex((alpha, alpha, alpha))
+        self.canvas.create_rectangle(pt_1[0], pt_1[1], pt_2[0], pt_2[1], fill=fill, width=0)
+
+    def clear(self):
+        """clears the canvas"""
+        self.canvas.delete('all')
+        self.pixels = np.zeros((28, 28))
+
+    def output(self):
+        """outputs the current state of the canvas"""
+        self.output_command(self.pixels.T.reshape(1, 784))
+        self.root.quit()
+        
+    def get_input(self):
+        """displays the canvas and buttons"""
+        self.root.mainloop()
+
+{% endhighlight %}
+</details>
