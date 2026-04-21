@@ -437,7 +437,9 @@ First, imagine a net with no activation function. This means each neuron activat
 If we add an activation function $A(a_i)$ that acts linear in each activation, the only thing that changes is that we need to add another chain rule step when moving from one layer to the previous. By multiplying by the derivative of the inverse of the activation function, this happens automatically. This is easily illustrated by:
 
 $$
+\begin{align*}
 A(w_{ji} b_j) &= a_i \\
 w_{ji} b_j &= A^{-1}(a_i)\\
 w_{ij}\frac{\partial b_j}{\partial L} &= \frac{\partial A^{-1}(a_i)}{\partial a_i} \frac{\partial a_i}{\partial L}
+\end{align*}
 $$
