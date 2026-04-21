@@ -438,9 +438,9 @@ If we add an activation function $A(b_j_0 w_{j_0i} + b_j_1 w_{j_1i} + ...)$, the
 
 $$
 \begin{align*}
-A(b_j_0 w_{j_0i} + b_j_1 w_{j_1i} + ...) &= a_i \\
-b_j_0 w_{j_0i} + b_j_1 w_{j_1i} + ... &= A^{-1}(a_i)\\
-w_{j_0i}\frac{\partial b_j_0}{\partial L} + w_{j_1i}\frac{\partial b_j_1}{\partial L} + ... &= \frac{\partial A^{-1}(a_i)}{\partial a_i} \frac{\partial a_i}{\partial L}
+A(b_{j_0} w_{j_0i} + b_{j_1} w_{j_1i} + ...) &= a_i \\
+b_{j_0} w_{j_0i} + b_{j_1} w_{j_1i} + ... &= A^{-1}(a_i)\\
+w_{j_0i}\frac{\partial b_{j_0}}{\partial L} + w_{j_1i}\frac{\partial b_{j_1}}{\partial L} + ... &= \frac{\partial A^{-1}(a_i)}{\partial a_i} \frac{\partial a_i}{\partial L}
 \end{align*}
 $$
 
