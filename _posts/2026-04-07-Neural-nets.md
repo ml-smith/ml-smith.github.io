@@ -438,6 +438,6 @@ If we add an activation function $A(a_i)$ that acts linear in each activation, t
 
 $$
 A(w_{ji} b_j) &= a_i \\
-w_{ji} b_j &= A^{-1}(a_i)
+w_{ji} b_j &= A^{-1}(a_i)\\
 w_{ij}\frac{\partial b_j}{\partial L} &= \frac{\partial A^{-1}(a_i)}{\partial a_i} \frac{\partial a_i}{\partial L}
 $$
