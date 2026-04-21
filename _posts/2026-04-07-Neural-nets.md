@@ -204,13 +204,14 @@ if __name__ == '__main__':
   main()
 
 {% endhighlight %}
+<br>
 </details>
 
 <img src='/assets/images/fitted-curve.png' alt='Noisy data being fit by a curve'>
 
 This method produces a very good fit of the data, especially considering how noisy it is. The next application of this was to use it on a real data set (which I chose to be used car data), which produced similar well-fitting results. However, my main goal in this project was not to have a roundabout way of fitting data. So, I wrote another section of the neural network chapter in the book, this time about backpropagation. I spent much more time on this section, both in the programming, and the writing itself. It is definitely one of the most complex programming tasks I have attempted, and was a rewarding and challenging experience.
 
-In this chapter, I introduce the idea of a python class. I use it heavily throughout the chapter, sometimes in places that it may not strictly be the best idea, but I felt it was a good way to show the various use cases it can have. The data that I fitted with my program is the Modified National Institute of Standards and Technology (MNIST) dataset. This data catalogs tens of thousands of handwritten digits in a 28x28 pixel format. This large amount of data combined with small computation power required for each individual image made it ideal for my purposes. 
+In the new section, I introduced the idea of a python class. I used it heavily throughout the chapter, sometimes in places that it may not strictly be the best idea, but I felt it was a good way to show the various use cases it can have. The data that I fitted with my program is the Modified National Institute of Standards and Technology (MNIST) dataset. This data catalogs tens of thousands of handwritten digits in a 28x28 pixel format. This large amount of data combined with small computation power required for each individual image made it ideal for my purposes. 
 
 <details>
 <summary>
@@ -426,6 +427,17 @@ if __name__ == '__main__':
   main()
 
 {% endhighlight %}
+<br>
 </details>
 
-This is, obviously, a very lengthy program.
+This is, obviously, a very lengthy program. The main idea of it, though, can be found from basic calculus. Backpropagation is just a fancy work for gradient descent, albeit in a very high-dimensional space. To calculate the gradient, one has to calculate the derivative of each parameter (that is, weights and biases for each neuron) with respect to the value to be minimized, which is the error at the output. This can be done by repeated applications of the chainrule backward through the net (hence the name backpropagation), as is explained below.
+
+First, imagine a net with no activation function. This means each neuron activation is the weighted sum of the previous layer with no extra processing. As this is a simple case, the math will be easier to understand, which can be built upon later. Consider a given neuron in the layer before the output. To understand how this could be tweaked to improve the accuracy of the net, we need two things: the weights that connect this neuron to the output, and the activation of the neuron. With these, it's trivial to calculate $\frac{\partial w_{ij}}{\partial L}$, where $w_ij$ is a given weight between neurons $i$ and $j$ in adjacent layers and $L$ is the loss, or total error in the output. This is just an algebraic operation, as it's obvious how changing each weight would affect the output. The true power of backpropagation comes from the next step, however. The other set of derivatives needed are all $\frac{\partial a_i}{\partial L}$, where $a_i$ is the activation of neuron $i$. Now that we know how each neuron in that layer should change, we can repeat the process the exact same way for the next layer. That leaves us with $\frac{\partial b_j}{\partial a_i}$, where $b_i$ is the activation for the new layer we're operating on. If we then multiply all of these by the corresponding $\frac{\partial a_i}{\partial L}$, giving us $\frac{\partial b_j}{\partial L}$. These absolute activation derivatives allow us to calculate the gradient for the all weights (and biases) in the net. 
+
+If we add an activation function $A(a_i)$ that acts linear in each activation, the only thing that changes is that we need to add another chain rule step when moving from one layer to the previous. By multiplying by the derivative of the inverse of the activation function, this happens automatically. This is easily illustrated by:
+
+$$
+A(w_{ji} b_j) &= a_i \\
+w_{ji} b_j &= A^{-1}(a_i)
+w_{ij}\frac{\partial b_j}{\partial L} &= \frac{\partial A^{-1}(a_i)}{\partial a_i} \frac{\partial a_i}{\partial L}
+$$
