@@ -3,7 +3,7 @@ title: "Metal Flowers"
 author_profile: false
 classes: wide
 header:
-  teaser: /assets/images/M.jpg # to be changed
+  teaser: /assets/images/3-flowers.jpg
 tags:
   - maker
 ---

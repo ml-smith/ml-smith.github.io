@@ -2,6 +2,8 @@
 title: "MNIST Neural Nets"
 classes: wide
 use_math: true
+header: 
+  teaser: /assets/images/simple-net.svg
 author_profile: false
 tags:
   - prog
@@ -93,7 +95,7 @@ def calc_all_layers(input_layer, net, layer_dict):
 
 {% endhighlight %}
 </details>
-
+<br>
 <details>
 <summary>
 This is the main genetic algorithm program.
@@ -204,8 +206,8 @@ if __name__ == '__main__':
   main()
 
 {% endhighlight %}
-<br>
 </details>
+<br>
 
 <img src='/assets/images/fitted-curve.png' alt='Noisy data being fit by a curve'>
 
@@ -427,8 +429,8 @@ if __name__ == '__main__':
   main()
 
 {% endhighlight %}
-<br>
 </details>
+<br>
 
 This is, obviously, a very lengthy program. The main idea of it, though, can be found from basic calculus. Backpropagation is just a fancy work for gradient descent, albeit in a very high-dimensional space. To calculate the gradient, one has to calculate the derivative of each parameter (that is, weights and biases for each neuron) with respect to the value to be minimized, which is the error at the output. This can be done by repeated applications of the chainrule backward through the net (hence the name backpropagation), as is explained below.
 
@@ -562,6 +564,7 @@ class DrawPad():
 
 {% endhighlight %}
 </details>
+<br>
 
 This is a very bare-bones UI, though it easily could be expanded to include more features. An example digit drawn with it is pictured below:
 
