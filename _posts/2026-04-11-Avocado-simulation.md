@@ -6,9 +6,9 @@ tags:
   - prog
 ---
 
-This is a subsection of my <a href="{{site.url}}/Kepler-ptolemy">Kepler Ptolemy project</a>, in the math section. This is a big part of what I worked on in that project, but I felt it was more fitting in the programming section. This will be a shorter descritption, but it still taught me some valuable things.
+This is a subsection of my <a href="{{site.url}}/Kepler-ptolemy">Kepler Ptolemy project</a>, in the math section. This is a big part of what I worked on in that project, but I felt it was more fitting in the programming section. This will be a shorter description, but it still taught me some valuable things.
 
-What inspired this project was simply a desire to see what the Kepler Ptolemy system could look like when we eventually solved the system of differential equations. Cris (Cristopher Moore, who was my mentor for the larger Kepler Ptolemy project) delegated it to me, as it's relatively simple and I'm familiar enough with python to do it easily (or so I thought). My initial approach was to choose some angle step from the equant, then step out along that line until the area swept out by the most recent step is equal to our initial area step (this ensures that angular momentum is conserved, as discussed in the main post):
+What inspired this project was simply a desire to see what the Kepler Ptolemy system could look like when we eventually solved the system of differential equations. Cris (Cristopher Moore, who was my mentor for the larger Kepler Ptolemy project) delegated it to me, as it's relatively simple and I'm familiar enough with Python to do it easily (or so I thought). My initial approach was to choose some angle step from the equant, then step out along that line until the area swept out by the most recent step is equal to our initial area step (this ensures that angular momentum is conserved, as discussed in the main post):
 
 <details>
 <summary>
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
 </details>
 
-This method ultimately turned out to be unfruitful: If one was to run the above code, it would produce a mess of lines radiating from the equant. This is due to errors from starting the trawl along the radial line at length zero. To solve this issue I found studying the geometry of a single timestep *dt* to be helpful:
+This method ultimately turned out to be unfruitful: If one were to run the above code, it would produce a mess of lines radiating from the equant. This is due to errors from starting the trawl along the radial line at length zero. To solve this issue, I found studying the geometry of a single timestep *dt* to be helpful:
 
 <img src="/assets/images/dt-timestep.svg" style="width: 150%">
 
@@ -104,7 +104,7 @@ From this, it is apparent that there is an easily calculable point close to but 
 
 <img src="/assets/images/avocado-curve.png">
 
-However, I quickly realized something about this entire geometry: If I kept track of the velocity at all times (by subtracting the new position from the old one and dividing by the timestep) I could avoid any type of for loop in each individual timestep, which turned out to be very simple to implement. The final version of the program is below:
+However, I quickly realized something about this entire geometry: If I kept track of the velocity at all times (by subtracting the new position from the old one and dividing by the timestep), I could avoid any type of for loop in each individual timestep, which turned out to be very simple to implement. The final version of the program is below:
 
 <details>
 <summary>
@@ -224,6 +224,6 @@ if __name__ == '__main__':
 {% endhighlight %}
 </details>
 
-This version has several additional bells and whistles when compared to the first program, but the underlying idea is the same. This also allows the user to input the desired shape of curve as an "eccentricty", much the same as an ellipses eccentricity. This also shows that the Kepler Ptolemy curves are indeed a one-parameter family, meaning every shape the closed form can take can be characterized by a single number.
+This version has several additional bells and whistles when compared to the first program, but the underlying idea is the same. This also allows the user to input the desired shape of curve as an "eccentricty," much the same as an ellipse's eccentricity. This also shows that the Kepler Ptolemy curves are indeed a one-parameter family, meaning every shape the closed form can take can be characterized by a single number.
 
 This project, although summarized quickly in this post, took a lot of effort and debugging on my part. I learned some overarching programming concepts, such as looking for a more efficient representation of the problem and new debugging techniques, as well as more specific elements relevant to this problem, such as the one-parameter nature of the Kepler Ptolemy curves.
