@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
 This method ultimately turned out to be unfruitful: If one were to run the above code, it would produce a mess of lines radiating from the equant. This is due to errors from starting the trawl along the radial line at length zero. To solve this issue, I found studying the geometry of a single timestep *dt* to be helpful:
 
-<img src="/assets/images/dt-timestep.svg" style="width: 250%">
+<img src="/assets/images/dt-timestep.svg" style="width: 100%">
 
 From this, it is apparent that there is an easily calculable point close to but not past the new position of the curve: where the two lines cross in the center of the diagram. Updating my step function in the above program to start at this new point, it began producing viable images:
 
