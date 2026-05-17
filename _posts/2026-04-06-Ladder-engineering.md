@@ -11,6 +11,8 @@ tags:
 
 In my <a href="{{site.url}}/Jacobs-ladder">post on my Jacob's ladder</a>, I wrote mainly about the process of building it and how it works. I also mentioned briefly the way the power supply works, but glossed over the majority of the math and principles behind how it works. Here, I want to go more in-depth into the mechanics of how it works. 
 
+<b><u>The Power Supply</u>:</b>
+
 The first thing to note is that I'm basing my calculations on the circuit diagram I showed in the main post:
 
 <img src="/assets/images/circuit-diagram.svg" alt="A circuit diagram of the power supply">
@@ -35,8 +37,8 @@ Now, how long does this spike last? After a certain amount of time, the change o
 
 $$
 \begin{align}
-\f_r &= \sqrt{\frac{1}{2\pi LC}} \\
-&= \sqrt{\frac{1}{6.28*0.0075*0.00002}} \\
+f_r &= \frac{1}{2\pi \sqrt{LC}} \\
+&= \frac{1}{6.28\sqrt{0.0075*0.00002}} \\
 &= 411Hz .
 \end{align}
 $$ 
@@ -47,3 +49,6 @@ If one looks closely at an image of the arcs created by this process (shown belo
 
 <img src="/assets/images/zoomed-arcs.jpg" alt="Five arcs shown close up to the camera">
 
+<b><u>Arcing</u>:</b>
+
+For this section, I wanted to go a bit more in-depth on the way arcing works and why the Jacob's ladder behaves the way it does. 
