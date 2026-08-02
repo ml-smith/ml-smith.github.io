@@ -43,7 +43,7 @@ f_r &= \frac{1}{2\pi \sqrt{LC}} \\
 \end{align}
 $$ 
 
-This results in a period of $2.43 ms$, and a spike lasting half of that that at $1.42 ms$. Then, the capacitor, having been charged sufficiently by the new current, opposes the inductor strongly enough to result in all current ceasing momentarily. This is the condition the TRIAC needs to switch off again, which is why we only get one arc per half-cycle instead of a series of them decreasing in voltage.
+This results in a period of $2.43 ms$, and a spike lasting half of that that at $1.21 ms$. Then, the capacitor, having been charged sufficiently by the new current, opposes the inductor strongly enough to result in all current ceasing momentarily. This is the condition the TRIAC needs to switch off again, which is why we only get one arc per half-cycle instead of a series of them decreasing in voltage.
 
 If one looks closely at an image of the arcs created by this process (shown below), it's apparent that there really are only 5 discrete arcs, and not a continuum of them as would be expected if the TRIAC did not switch off. 
 
@@ -51,4 +51,10 @@ If one looks closely at an image of the arcs created by this process (shown belo
 
 <b><u>Arcing</u>:</b>
 
-For this section, I wanted to go a bit more in-depth on the way arcing works and why the Jacob's ladder behaves the way it does. 
+For this section, I wanted to go a bit more in-depth on the way arcing works and why the Jacob's ladder behaves the way it does. Arcing is a phenomenom that occurs when a normally insulating medium is turned into a conductor due to a strong electric field ionizing the atoms of the medium, leaving the electrons free to flow and conduct current. The particular field required for this depends on a vareity of factors, but for air the breakdown voltage is around $3\frac{kV}{mm}$, meaning the $19.5kV$ gives us an arcing distance of $6.5 mm$, or a quarter inch. Our starting gap is larger than this, slightly over half an inch. Why, then, do we still observe an arc? The answer has to do with electrode geometry and an effect called corona discharge. While it is true that air will not break down unless the local field exceeds a strength of $3\frac{kV}{mm}$, this does not mean the *entire* path has to be at this field strength. Around the electrodes, the field gets stronger, and any surface defects, sharp ridges, or small-radius curves can produce sufficient field strengths to observe corona discharge, pictured below: 
+
+<img src="/assets/images/Corona-discharge.jpeg" alt="purple haze coming off powerlines">
+
+The effect picture above is the result of the local ionization of air molecules, which then recombine with their electron to emit the characteristic purple glow. On small scales, however, this discharge can start a cascade effect, where the electrons fly towards the positive electrode, knocking others of in their path. This results in arcs below the ideal breakdown field of the medium. 
+
+Now that it's clear how an arc forms at the bottom, we need to understand why it rises. This actually necessitates the use of an entirely different area of physics: thermodynamics. When the arc goes through the air, it can heat it to thousands of degrees (the exact temperature depends on a wide range of factors.) This hot air then rises rapidly, and the extremely hot air is much easier for an arc to form in (as the electrons fly off more easily), and thus the process continues untill the electrode runs out at the top. It's also important to note that the very precise geometry of the electrode can have a strong impact on final results, as the arc can get "stuck" if ever the electrodes slope toward each other.
