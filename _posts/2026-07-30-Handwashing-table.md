@@ -1,5 +1,5 @@
 ---
-title: "Railroad Spike Machete"
+title: "Simple Table"
 author_profile: false
 classes: wide
 header:

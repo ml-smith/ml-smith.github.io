@@ -1,5 +1,5 @@
 ---
-title: "Railroad Spike Machete"
+title: "Pine Tree Shelter"
 author_profile: false
 classes: wide
 header:
