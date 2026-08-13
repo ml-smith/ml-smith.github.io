@@ -2,6 +2,7 @@
 title: "MNIST Neural Nets"
 classes: wide
 use_math: true
+read_time: false
 header: 
   teaser: /assets/images/simple-net.svg
 author_profile: false
