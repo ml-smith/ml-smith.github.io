@@ -19,4 +19,4 @@ With that being said, this project was building the table pictured above. I was 
 
 Additionally, these small issues often led into one another. For example, once I found screws strong enough to hold the legs on (left over from a recent renovation of cabins), I discovered there wasn't a drill strong enough to drive the screws into to the wood. What ended up happening was I had to go into a nearby town to get a drillbit to make a pilot hole so the screw would take less effort to send into the wood.
 
-I think overall having completed this project gave me more versatile skills to improvise solutions to problems that arise during a partially completed project and still produce 
+I think overall having completed this project gave me more versatile skills to improvise solutions to problems that arise during a partially completed project and still produce a result that is useable in line with the original intent. This is a valuable skill, because no project in the real world will ever actually go according to the exact original plan.
